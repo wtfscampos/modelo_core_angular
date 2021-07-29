@@ -122,11 +122,19 @@ namespace modelo_core_angular.Controllers.Api
         public async Task<string> Status(string status)
         {
             var url_api = new Uri(apiEndereco + "/status");
-
             var response = await httpClient.GetAsync(url_api);
-
             response.EnsureSuccessStatusCode();
+            var responseStr = await response.Content.ReadAsStringAsync();
+            return responseStr;
+        }
 
+        [HttpGet("conexao")]
+        [Produces("application/json")]
+        public async Task<string> Conexao(string status)
+        {
+            var url_api = new Uri(apiEndereco + "/conexao");
+            var response = await httpClient.GetAsync(url_api);
+            response.EnsureSuccessStatusCode();
             var responseStr = await response.Content.ReadAsStringAsync();
             return responseStr;
         }

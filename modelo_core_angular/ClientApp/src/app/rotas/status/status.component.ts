@@ -20,12 +20,14 @@ export class statusComponent implements OnInit {
   realm: string;
   apiendereco: string;
   status: string;
+  conexao: string;
 
   constructor(private apiService: ApiClientService, private configuracao: AppInitService) {
   }
 
   ngOnInit() {
     this.BuscarStatus("api/Projeto");
+    this.BuscarConexao("api/Projeto");
     this.BuscarConfiguracao();
   }
 
@@ -36,6 +38,17 @@ export class statusComponent implements OnInit {
       },
       errorResponse => {
         this.status = errorResponse.error.message;
+      }
+    );
+  }
+
+  BuscarConexao(apiUrl) {
+    this.apiService.conexao<string>(apiUrl).subscribe(
+      conexao => {
+        this.conexao = conexao;
+      },
+      errorResponse => {
+        this.conexao = errorResponse.error.message;
       }
     );
   }
