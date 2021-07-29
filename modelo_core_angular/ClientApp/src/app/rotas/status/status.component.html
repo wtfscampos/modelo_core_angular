@@ -1,0 +1,24 @@
+<section>
+  <h1>Sobre a aplicação piloto:</h1>
+  <h2>Informações dos artefatos</h2>
+  <ul>
+    <li>Build: {{ build }} </li>
+    <li>Release: {{ release }}</li>
+    <li>Ambiente: {{ ambiente }}</li>
+    <li>Tipo de deploy: {{ tipodeploy }}</li>
+    <li>Plataforma: {{ plataforma }}</li>
+  </ul>
+  <p>______________________________________________</p>
+  <h2>Identity</h2>
+  <ul>
+    <li>Identity</li>
+    <li>Endereço: {{ issuer }}</li>
+    <li>Aplicação: {{ realm }}</li>
+  </ul>
+  <p>______________________________________________</p>
+  <h2>Ligações externas</h2>
+  <ul>
+    <li>Endereço da API: {{ apiendereco }}</li>
+    {{ status }}
+  </ul>
+</section>

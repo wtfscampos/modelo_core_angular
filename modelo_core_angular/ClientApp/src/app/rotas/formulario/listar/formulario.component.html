@@ -1,0 +1,46 @@
+<h1>Formulário de manutenção de dados</h1>
+<hr />
+<p>
+  <a [routerLink]="['adicionar']"><i class="fas fa-plus"></i> Adicionar</a>
+</p>
+<div id="tabela_dados" class="table-responsive">
+  <table class="tabela">
+    <thead>
+      <tr>
+        <th scope="col">
+          Id
+        </th>
+        <th scope="col">
+          Nome
+        </th>
+        <th scope="col">
+          Descrição
+        </th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dado of dados" scope="row">
+        <td>
+          {{dado.id}}
+        </td>
+        <td>
+          {{dado.nome}}
+        </td>
+        <td>
+          {{dado.descricao}}
+        </td>
+        <td>
+          <a [routerLink]="['alterar', dado.id]"><i alt="Alterar" class="fas fa-edit"></i></a>
+          <a [routerLink]="['detalhes', dado.id]"><i alt="Detalhes" class="fas fa-info-circle"></i></a>
+          <a [routerLink]="['excluir', dado.id]"><i alt="Excluir" class="fas fa-trash-alt cor-icon1"></i></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<hr />
+<div>
+  <p>{{status.message}}</p>
+  <p>{{status.detail}}</p>
+</div>

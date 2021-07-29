@@ -1,0 +1,34 @@
+<div id="sidebar" class="lateral" [ngClass]="{'active': !isExpanded }">
+  <nav>
+    <ul class="list-unstyled components" id="menu">
+      <li>
+        <a [routerLink]="['/']">
+          <i class='fas fa-home'></i>
+          Home
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/formulario']">
+          <i class="fas fa-table"></i>
+          Formulário
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/contato']">
+          <i class="fas fa-envelope"></i>
+          Contato
+        </a>
+      </li>
+      <li *ngIf="!isExpanded" (click)="toggle()">
+        <a>
+          <i class="fas fa-angle-double-right"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div *ngIf="isExpanded" id="sidebarCollapseDiv">
+    <button type="button" id="sidebarCollapse" class="btn btn-retro" (click)="toggle()">
+      <span><i class="fa fa-angle-double-left"></i><span class="txRetro"></span></span>
+    </button>
+  </div>
+</div>

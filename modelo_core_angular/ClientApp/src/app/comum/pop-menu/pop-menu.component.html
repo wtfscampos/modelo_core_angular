@@ -1,0 +1,22 @@
+<i id="botao_popup" class="fas fa-user-cog" aria-expanded="false" alt="Menu de informações do sistema"></i>
+<ul *ngIf="isShown" class="dropdown-menu dropdown-menu-right drp-mnu show" x-pl>
+  <li>
+    <a [routerLink]="['/privacidade']">
+      <i class="fas fa-user-secret"></i>
+      Privacidade
+    </a>
+  </li>
+  <li>
+    <a [routerLink]="['/status']">
+      <i class="fas fa-info-circle"></i>
+      Sobre
+    </a>
+  </li>
+  <li class="quebra_linha"></li>
+  <li>
+    <a href="app/sair">
+      <i class="fas fa-sign-out-alt"></i>
+      Sair
+    </a>
+  </li>
+</ul>
