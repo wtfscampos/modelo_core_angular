@@ -39,5 +39,7 @@ export class ApiClientService {
   public conexao<T>(apiUrl: string): Observable<T> {
     return this.httpClient.get<T>(apiUrl + "/conexao");
   }
-
+  public usuario<T>(apiUrl: string): Observable<T> {
+    return this.httpClient.get<T>(apiUrl);
+  }
 }

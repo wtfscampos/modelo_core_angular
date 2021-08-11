@@ -1,3 +1,4 @@
+using Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using System.Text.Json;
@@ -9,10 +10,12 @@ namespace modelo_core_angular.Controllers.Api
     public class ConfiguracaoController : ControllerBase
     {
         private IConfiguration _configuration;
+        public Usuario _usuario { get; private set; }
 
-        public ConfiguracaoController(IConfiguration configuration)
+        public ConfiguracaoController(IConfiguration configuration, Usuario usuario)
         {
             _configuration = configuration;
+            _usuario = usuario;
         }
 
         [HttpGet("{parametro}")]
@@ -27,6 +30,13 @@ namespace modelo_core_angular.Controllers.Api
         public ActionResult appSettings()
         {
             return new JsonResult(JsonSerializer.Deserialize<object>(System.IO.File.ReadAllText("./appsettings.json")));
+        }
+
+        [HttpGet("usuario")]
+        [Produces("application/json")]
+        public ActionResult usuario()
+        {
+            return new JsonResult(JsonSerializer.Deserialize<object>(JsonSerializer.Serialize(_usuario)));
         }
     }
 }
