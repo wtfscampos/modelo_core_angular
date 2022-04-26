@@ -1,0 +1,1 @@
+Repositório com uma aplicação .NET (core) com frontend Angular e utilização do layout padrão da Sefaz, que consome uma API de acesso e manutenção (CRUD) de dados.
